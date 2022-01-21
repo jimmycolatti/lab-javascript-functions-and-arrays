@@ -2,7 +2,7 @@
 function maxOfTwoNumbers(num1, num2) {
   if (num1 > num2) {
     return num1;
-  } else if (num1 < num2) {
+  } else {
     return num2;
   }
 }
@@ -12,6 +12,11 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 
 function findLongestWord(arrayOfWords) {
   let longestWord = arrayOfWords[0];
+
+  if (arrayOfWords.length === 0) {
+    return null;
+  }
+
   for (i = 0; i < arrayOfWords.length; i++) {
     if (arrayOfWords[i].length <= longestWord.length) {
       continue;
@@ -34,7 +39,19 @@ function sumNumbers(arrayOfNumbers) {
 }
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(anArray) {
+  let sum = 0;
+  for (let i = 0; i < anArray.length; i++) {
+    if (typeof anArray[i] === 'string') {
+      sum += anArray[i].length;
+    } else if (typeof anArray[i] === 'object') {
+      throw "Unsupported data type sir or ma'am";
+    } else {
+      sum += anArray[i];
+    }
+  }
+  return sum;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -42,6 +59,10 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arrayOfNumbers) {
   let results = 0;
+
+  if (arrayOfNumbers.length === 0) {
+    return null;
+  }
   for (i = 0; i < arrayOfNumbers.length; i++) {
     results += arrayOfNumbers[i];
   }
@@ -52,6 +73,9 @@ function averageNumbers(arrayOfNumbers) {
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(arrayOfWords) {
+  if (arrayOfWords.length === 0) {
+    return null;
+  }
   let sumOfWords = 0;
   for (i = 0; i < arrayOfWords.length; i++) {
     sumOfWords += arrayOfWords[i].length;
@@ -78,6 +102,9 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(arrayOfWords) {
+  if (arrayOfWords.length === 0) {
+    return null;
+  }
   let newArray = arrayOfWords.filter((element, index) => {
     return arrayOfWords.indexOf(element) === index;
   });
@@ -89,6 +116,9 @@ function uniquifyArray(arrayOfWords) {
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(arrayOfWords, wordSearch) {
+  if (arrayOfWords.length === 0) {
+    return null;
+  }
   for (i = 0; i < arrayOfWords.length; i++) {
     if (wordSearch === arrayOfWords[i]) {
       return true;
